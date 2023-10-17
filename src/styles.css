@@ -1,0 +1,12 @@
+.head {
+    margin-top: 35px;
+}
+
+.sidebar {
+    width: 400px;
+    margin-right: 10px;
+    align-self: flex-start;
+    align-items: start;
+    margin-top: 25px;
+
+}
