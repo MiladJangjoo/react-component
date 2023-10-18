@@ -1,42 +1,20 @@
-import Navbar from 'react-bootstrap/NavBar';
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import {NavLink} from 'react-router-dom'
 export default function Heading(): JSX.Element {
 
 
     return(
         <>
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">Milad Jangjoo</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Register
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <header>
+        <nav className ='nav'>
+            <ul className="nav-ul">           
+                <li className="margin-nav"><a href="#">Become Our Partner</a></li>
+                <li className="margin-nav"><a href="#">About Us</a></li>
+                <li className="margin-nav"><a href="#">Contact Us</a></li> 
+                <li className="login"><NavLink to="/login" className="aa">Login</NavLink></li>
+                <li className="sign-up"><NavLink to="/register" className="aa">Signup</NavLink></li>
+            </ul>
+        </nav>
+    </header>
         
         
         </>

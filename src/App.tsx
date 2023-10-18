@@ -1,9 +1,10 @@
-import Stack from 'react-bootstrap/Stack'
-import Container from 'react-bootstrap/Container'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Heading from './assets/components/Heading'
+import Login from './assets/components/Login'
+import Register from './assets/components/Register'
 import './styles.css'
-import SectionOne from './assets/components/SectionOne'
-import Sidebar from './assets/components/Sidebar'
+
+
 
 
 function App(): JSX.Element {
@@ -11,17 +12,17 @@ function App(): JSX.Element {
   
 
   return (
-    <Container>
+    
+    <BrowserRouter>
     <Heading />
-    <Stack direction='horizontal'>
+    <Routes>
+      <Route path='/login' element={<Login />}/>
+      <Route path='/register' element={<Register />}/>
+      <Route path='*' element={<Navigate to='/' />}/>
+    </Routes>
+    </BrowserRouter>
     
-    <Sidebar />
-    <div>
     
-    <SectionOne />
-    </div>
-    </Stack>
-    </Container>
     
   )
 }

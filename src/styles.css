@@ -1,12 +1,146 @@
-.head {
-    margin-top: 35px;
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&family=Creepster&family=Inter:wght@100;200;300;400;500;600&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nosifer&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Inter;
+    color: white; 
+    
 }
 
-.sidebar {
+:root {
+    --blue-color: rgb(4, 79, 144);
+    --grey-color: rgb(74, 69, 69);
+}
+
+
+
+.nav {
+    background-color: var(--blue-color);
+    display: flex;
+    box-shadow: 5px 1px 5px 1px black;
+    
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.5s;
+    
+    
+}
+
+.nav a:hover {
+    color: rgb(24, 23, 23);
+    
+    
+}
+
+.nav-ul {
+    list-style: none;
+    width: 100%;
+    
+}
+
+
+
+li {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 12px;
+}
+
+.login {
+    float: right;
+    margin-right: 40px;
+    background-color: rgb(230, 219, 219);
+    border-radius: 10px;
+}
+
+
+.sign-up {
+    float: right;
+    margin-right: 40px;
+    background-color: rgb(230, 219, 219);
+    border-radius: 10px;
+    
+}
+
+.nav-ul .aa {
+    color: var(--grey-color);
+    transition: 0.5;
+}
+
+.login-container {
+    background-color: var(--blue-color);
     width: 400px;
-    margin-right: 10px;
-    align-self: flex-start;
-    align-items: start;
-    margin-top: 25px;
-
+    height: 600px;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    
 }
+
+.login-container2 {
+    background-color: var(--blue-color);
+    width: 400px;
+    height: 800px;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    
+}
+
+.h3-login {
+    padding-top: 20px;
+    height: 60px;
+    
+    
+}
+.username-login {
+    height: 60px;
+    width: 300px;
+    margin-left: 50px;
+    color: var(--grey-color);
+    padding-left: 5px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.submit-button {
+    width: 120px;
+    height: 40px;
+    margin-left: 35%;
+    margin-top: 60px;
+    color: black;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.sign-in-login{
+    margin-top: 30px;
+}
+
+.sign-in-login a{
+    color: black;
+    
+}
+
+
+
+
+
+
