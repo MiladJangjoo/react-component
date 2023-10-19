@@ -1,16 +1,9 @@
-import { FormEvent, useRef} from 'react'
+import { FormEvent, useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
+import{ User } from '../components/types'
 
 
 
-type User = {
-    username: string
-    password: string
-    email: string
-    first_name?: string
-    last_name?:string
-    phone_number: string
-}
 
 export default function Register() {
 
@@ -22,6 +15,10 @@ export default function Register() {
   const phonenumberfield = useRef<HTMLInputElement>(null)
   const firstnamefield = useRef<HTMLInputElement>(null)
   const lastnamefield = useRef<HTMLInputElement>(null)
+
+  useEffect(()=>{
+    if(localStorage.getItem('token')){navigate('/')}
+  },[])
   
   async function handleRegisterdata(e: FormEvent<HTMLElement>){
         e.preventDefault()
@@ -56,7 +53,7 @@ export default function Register() {
     if (!res.ok){
         window.alert('username or email already exist')
         
-    } else navigate('/')
+    } else navigate('/passengerlogin')
     
   }
   function clearFormData(){

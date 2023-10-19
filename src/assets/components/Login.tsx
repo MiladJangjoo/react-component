@@ -1,5 +1,6 @@
-import { FormEvent, useRef} from 'react'
+import { FormEvent, useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
+import{ User } from '../components/types'
 
 
 export default function Login() {
@@ -7,25 +8,46 @@ export default function Login() {
   const usernamefield = useRef<HTMLInputElement>(null)
   const emailfield = useRef<HTMLInputElement>(null)
   const passwordfield = useRef<HTMLInputElement>(null)
+
+  useEffect(()=>{
+    if(localStorage.getItem('token')){navigate('/')}
+  },[])
+
   function handellogindata(e: FormEvent<HTMLElement>){
     e.preventDefault()
     const logininfo : Partial<User> = {
         password: passwordfield.current!.value
     }
     if(usernamefield.current?.value){
-        logininfo.username usernamefield.current,value
-    } else if (passwordfield.current?.value){
-
+        logininfo.username = usernamefield.current.value
+    } else if(emailfield.current?.value){
+      logininfo.email = emailfield.current.value
+    }else{
+      window.alert('please include username or email')
+      return
     }
-    loginuser()
+    clearform()
+    loginuser(logininfo)
+    navigate('/')
   }
-  async function loginuser(){
-    const res = await fetch('')
+  async function loginuser(logininfo: Partial<User>){
+    const res = await fetch('https://snaptransportation.onrender.com/passengerlogin', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(logininfo)
+    })
     if(res.ok){
         const data = await res.json()
-        console.log(data)
+        const accessToken = data.access_token
+        localStorage.setItem('token',accessToken)
         navigate('/')
     }else window.alert('invalid username or password')
+  }
+
+  function clearform(){
+    usernamefield.current!.value = ''
+    emailfield.current!.value = ''
+    passwordfield.current!.value = ''
   }
   return (
    <>
